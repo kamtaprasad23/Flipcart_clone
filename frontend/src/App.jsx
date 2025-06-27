@@ -12,13 +12,12 @@ const App = ()=>{
     <>
     <BrowserRouter>
     <Topbar />
-  
+    <Removecart />
       <Routes>
         <Route path="/login" element={<LoginPage/>}> </Route>
         <Route path="/" element={<HomePage/>}> </Route>
         <Route path="/otp" element={<VerifyOTP/>}> </Route>
         <Route path="/signup" element={<SignupPage/>}> </Route>
-        <Route path="/removecart" element={<Removecart/>}> </Route>
         
         
       </Routes>

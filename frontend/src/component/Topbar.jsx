@@ -3,7 +3,8 @@ import {FiSearch,FiUser,FiShoppingCart,FiMoreVertical,FiMenu,FiBell,FiHeadphones
 import { FaStore } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import LoginDropdown from "../pages/LoginDropDown";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { openCart } from "../redux/counter/counterSlice.jsx";
 
 const Topbar = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const Topbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [moreMenuOpen, setMoreMenuOpen] = useState(false);
   const count = useSelector((state) => state.counter.value)
+  const dispatch = useDispatch()
 
   return (
     <div className="flex items-center justify-between px-6 py-2 shadow-md bg-white relative sticky top-0 z-10">
@@ -51,13 +53,12 @@ const Topbar = () => {
 
         {/* Cart */}
         <div
-          className="flex items-center space-x-1 cursor-pointer"
-          onClick={() => navigate("/removecart")}
-        >
-          <FiShoppingCart className="text-lg" />
-          <sup>{count}</sup>
-          <span>Cart</span>
-        </div>
+        onClick={() => dispatch(openCart())}
+
+        className="flex items-center space-x-1 cursor-pointer"
+      >
+        🛒 <sup>{count}</sup> <span>Cart</span>
+      </div>
 
         {/* Become Seller */}
         <div
@@ -134,7 +135,7 @@ const Topbar = () => {
           </div>
           <div
             className="flex items-center space-x-2 cursor-pointer"
-            onClick={() => navigate("/cart")}
+           onClick={() => dispatch(openCart())}
           >
             <FiShoppingCart />
             <span>Cart</span>
