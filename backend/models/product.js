@@ -6,7 +6,7 @@ const product = new mongoose.Schema(
         id: {
             type: String
         },
-        imageSrc: {
+        image: {
             type: String
         },
         name: {

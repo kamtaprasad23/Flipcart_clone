@@ -16,7 +16,7 @@ const Removecart = ()=>{
           {addtocart.map((e) => (
   <div key={e.cartId} className="bg-white p-4 rounded-xl shadow-md flex flex-col items-center">
     <img
-      src={e.imageSrc}
+      src={e.image}
       alt={e.name}
       className="w-fit h-36 object-cover rounded-md mb-2"
     />

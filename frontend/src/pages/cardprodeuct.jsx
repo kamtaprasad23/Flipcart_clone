@@ -56,7 +56,7 @@ const Product = () => {
               className="min-w-[250px] max-w-[250px]  rounded-lg overflow-hidden shadow-sm"
             >
               <img
-                src={e.imageSrc}
+                src={e.image}
                 alt={e.name}
                 className="w-full h-60 object-cover"
               />
@@ -69,7 +69,7 @@ const Product = () => {
                 id: e._id,        
                 cartId: Date.now() + Math.random()  
               }))}
-                className="mx-15 p-1 px-2 bg-gray-500 text-white rounded cursor-pointer">Add to Cart</button>
+                className="mx-15 p-1 px-2 bg-blue-600 text-white text-xs text-white rounded cursor-pointer">Add to Cart</button>
             </div>
           ))}
         </div>
