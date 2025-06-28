@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useDispatch } from "react-redux";
-import {addproduct} from "../redux/counter/counterSlice.jsx"
+import { addproduct } from "../redux/counter/counterSlice.jsx"
 
 const ProductHomepage = () => {
   const [products, setProducts] = useState({});
@@ -58,11 +58,10 @@ const ProductHomepage = () => {
         {/* Product List */}
         <div
           ref={scrollRef}
-          className={`${
-            isScrollable
+          className={`${isScrollable
               ? "flex overflow-x-auto no-scrollbar gap-4 scroll-smooth"
               : "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
-          }`}
+            }`}
         >
           {items?.map((item) => (
             <div
@@ -77,14 +76,15 @@ const ProductHomepage = () => {
               <div className="text-sm font-medium text-center">{item.title}</div>
               <div className="text-green-600 font-semibold mt-1">₹{item.price}</div>
               <button
-               onClick={()=>dispatch (addproduct(
-                {
-                ...item,
-                id: item._id,        
-                cartId: Date.now() + Math.random()  
-              }
-               ))}
-                className="mt-2 px-3 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700 transition"> 
+                onClick={() =>
+                  dispatch(addproduct({
+                    cartId: item._id,   
+                    name: item.name,
+                    image: item.image,
+                    price: item.price
+                  }))
+                }
+                className="mt-2 px-3 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700 transition">
                 Add to Cart
               </button>
             </div>

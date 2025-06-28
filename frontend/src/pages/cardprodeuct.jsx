@@ -64,11 +64,14 @@ const Product = () => {
                 <h3 className="text-sm font-medium truncate">{e.name}</h3>
                 <p className="text-xs text-gray-500 mt-1">From {e.price}</p>
               </div>
-              <button onClick={() => dispatch(addproduct({
-                ...e,
-                id: e._id,        
-                cartId: Date.now() + Math.random()  
-              }))}
+              <button onClick={() =>
+                dispatch(addproduct({
+                  cartId: e._id,   
+                  name: e.name,
+                  image: e.image,
+                  price: e.price
+                }))
+              }
                 className="mx-15 p-1 px-2 bg-blue-600 text-white text-xs text-white rounded cursor-pointer">Add to Cart</button>
             </div>
           ))}

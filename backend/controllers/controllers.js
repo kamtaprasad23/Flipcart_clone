@@ -57,8 +57,8 @@ const login = async (req, res) => {
   }
 };
 
-// OTP Verification
-const otp = (req, res) => {
+// OTP Verification - now returns username too
+const otp = async (req, res) => {
   const { mobile, otpnum } = req.body;
   const record = otpStore[mobile];
 
@@ -76,13 +76,21 @@ const otp = (req, res) => {
 
   if (record.code === otpnum) {
     delete otpStore[mobile];
-    return res.json({ success: true, message: "OTP verified. Login successful." });
+
+    //  User ka name database se
+    const user = await regstation_Data.findOne({ mobile });
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
+
+    return res.json({
+      success: true,
+      message: "OTP verified. Login successful.",
+      username: user.name,  // username db
+    });
   } else {
     return res.status(400).json({ success: false, message: "Invalid OTP" });
   }
 };
 
-// Add Single Product
-
-
-export {home, reg, login, otp,};
+export { home, reg, login, otp };

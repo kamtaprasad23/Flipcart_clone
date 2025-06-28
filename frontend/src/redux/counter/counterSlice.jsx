@@ -1,26 +1,30 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: {
     value: 0,
     addtocart: [],
-    isCartOpen:false,
+    isCartOpen: false,
+    username: null,  // ⬅️ username state
   },
   reducers: {
     increment: (state) => {
-      state.value += 1
+      state.value += 1;
     },
     decrement: (state) => {
-      state.value -= 1
+      state.value -= 1;
     },
     addproduct: (state, action) => {
-      state.addtocart.push(action.payload);
-      state.value += 1
+      const existingItem = state.addtocart.find(item => item.cartId === action.payload.cartId);
+      if (!existingItem) {
+        state.addtocart.push(action.payload);
+        state.value += 1;
+      }
     },
     removeaddproduct: (state, action) => {
-      state.addtocart = state.addtocart.filter(item => item.cartId !== action.payload)
-      state.value -= 1
+      state.addtocart = state.addtocart.filter(item => item.cartId !== action.payload);
+      state.value -= 1;
     },
     openCart: (state) => {
       state.isCartOpen = true;
@@ -28,10 +32,18 @@ export const counterSlice = createSlice({
     closeCart: (state) => {
       state.isCartOpen = false;
     },
+    setUsername: (state, action) => {
+      state.username = action.payload;
+    },
+    logout: (state) => {
+      state.username = null;
+      state.addtocart = [];
+      state.value = 0;
+      state.isCartOpen = false;
+    },
   },
-})
+});
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, addproduct, removeaddproduct,openCart,closeCart } = counterSlice.actions
+export const { increment, decrement, addproduct, removeaddproduct, openCart, closeCart, setUsername, logout } = counterSlice.actions;
 
-export default counterSlice.reducer
+export default counterSlice.reducer;

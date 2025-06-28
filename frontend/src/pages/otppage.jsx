@@ -1,14 +1,16 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setUsername } from "../redux/counter/counterSlice";
 import { useNavigate } from "react-router-dom";
 
 const VerifyOTP = () => {
   const [otp, setOtp] = useState("");
-  const nav = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const mobile = localStorage.getItem("mobile");
 
-  const handleVerify = async (e) => {
-    e.preventDefault();
+  const handleVerifyOtp = async () => {
     try {
       const res = await axios.post("http://localhost:5000/otp", {
         mobile,
@@ -16,46 +18,34 @@ const VerifyOTP = () => {
       });
 
       if (res.data.success) {
-        alert("Login successful");
-        nav("/"); // redirect after success
-      } else {
-        alert(res.data.message || "Verification failed");
+      dispatch(setUsername(res.data.username));  // yaha pe name store kar liya
+      alert("Login Successful");
+      navigate("/");
+    } else {
+        alert("Invalid OTP");
       }
     } catch (err) {
       console.error(err);
-      alert("Error verifying OTP");
+      alert("Verification failed");
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-sm">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Verify OTP
-        </h2>
-        <form onSubmit={handleVerify} className="space-y-4">
-          <input
-            type="text"
-            placeholder="Enter OTP"
-            value={otp}
-            onChange={(e) => setOtp(e.target.value)}
-            required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition"
-          >
-            Verify OTP
-          </button>
-        </form>
-        <p className="text-sm text-gray-500 text-center mt-4">
-          Didn’t get the OTP?{" "}
-          <span className="text-blue-600 cursor-pointer hover:underline">
-            Resend
-          </span>
-        </p>
-      </div>
+    <div className="flex flex-col items-center mt-20">
+      <h2 className="text-2xl font-bold mb-4">Enter OTP</h2>
+      <input
+        type="text"
+        value={otp}
+        onChange={(e) => setOtp(e.target.value)}
+        className="border p-2 mb-4 w-60"
+        placeholder="Enter OTP"
+      />
+      <button
+        onClick={handleVerifyOtp}
+        className="bg-blue-500 text-white px-4 py-2 rounded"
+      >
+        Verify OTP
+      </button>
     </div>
   );
 };
