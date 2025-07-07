@@ -13,7 +13,7 @@ const ProductHomepage = () => {
 
   useEffect(() => {
     axios
-      .get("https://e-commerce-website-2ksc.onrender.com/homepage-data")
+      .get("https://e-commerce-website-backend-oq8z.onrender.com/homepage-data")
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);
