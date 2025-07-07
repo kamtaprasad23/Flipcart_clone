@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { closeCart, removeaddproduct } from "../redux/counter/counterSlice";
+import { useNavigate } from "react-router-dom";
 
 const Removecart = () => {
+  const navigate=useNavigate()
   const dispatch = useDispatch();
   const addtocart = useSelector((state) => state.counter.addtocart);
   const isCartOpen = useSelector((state) => state.counter.isCartOpen);
@@ -44,6 +46,7 @@ const Removecart = () => {
                 >
                   Remove
                 </button>
+                <button className="mt-2 px-3 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700 transition" onClick={()=>navigate("/payment")}>Buy products</button>
               </div>
             ))}
           </div>

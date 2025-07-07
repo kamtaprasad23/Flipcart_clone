@@ -8,6 +8,7 @@ import bodyParser from "body-parser";
 
 const app = express();
 app.use(cors());
+app.use(express.json())
 app.use(bodyParser.json());
 mongoose.connect(mongourl).then(()=>{
     console.log("mongodb connect")
@@ -17,5 +18,5 @@ mongoose.connect(mongourl).then(()=>{
 
 app.use(route)
 app.listen(port,()=>{
-    console.log("server is running");
+    console.log("server is running 5000");
 });

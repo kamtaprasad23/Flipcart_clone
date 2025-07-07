@@ -3,10 +3,13 @@ import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { addproduct } from "../redux/counter/counterSlice.jsx"
+import { useNavigate } from "react-router-dom";
 
 const ProductHomepage = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState({});
   const dispatch = useDispatch()
+
 
   useEffect(() => {
     axios
@@ -87,6 +90,7 @@ const ProductHomepage = () => {
                 className="mt-2 px-3 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700 transition">
                 Add to Cart
               </button>
+              <button className="mt-2 px-3 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700 transition" onClick={()=>navigate("/payment")}>Buy products</button>
             </div>
           ))}
         </div>

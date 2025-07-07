@@ -1,0 +1,195 @@
+[
+  {
+   
+    "subCategories": [
+      {
+        "name": "Men's Top Wear",
+        "slug": "mens-top-wear",
+        "subItems": [
+          { "name": "Men's T-Shirts", "slug": "mens-tshirts" },
+          { "name": "Men's Casual Shirts", "slug": "mens-casual-shirts" },
+          { "name": "Men's Formal Shirts", "slug": "mens-formal-shirts" },
+          { "name": "Men's Kurtas", "slug": "mens-kurtas" },
+          { "name": "Men's Ethnic Sets", "slug": "mens-ethnic-sets" },
+          { "name": "Men's Blazers", "slug": "mens-blazers" },
+          { "name": "Men's Raincoat", "slug": "mens-raincoat" },
+          { "name": "Men's Windcheaters", "slug": "mens-windcheaters" },
+          { "name": "Men's Suit", "slug": "mens-suit" },
+          { "name": "Men's Fabric", "slug": "mens-fabric" }
+        ]
+      },
+      {
+        "name": "Men's Bottom Wear",
+        "slug": "mens-bottom-wear",
+        "subItems": [
+          { "name": "Jeans", "slug": "jeans" },
+          { "name": "Trousers", "slug": "trousers" }
+        ]
+      },
+      {
+        "name": "Women Ethnic",
+        "slug": "women-ethnic",
+        "subItems": [
+          { "name": "All", "slug": "all" },
+          { "name": "Women Sarees", "slug": "women-sarees" },
+          { "name": "Kurtas & Kurtis", "slug": "kurtas-kurtis" },
+          { "name": "Lehenga Cholis", "slug": "lehenga-cholis" },
+          { "name": "Gowns", "slug": "gowns" }
+        ]
+      },
+      {
+        "name": "Men's Footwear",
+        "slug": "mens-footwear",
+        "subItems": [
+          { "name": "All", "slug": "all" },
+          { "name": "Sports Shoes", "slug": "sports-shoes" },
+          { "name": "Casual Shoes", "slug": "casual-shoes" },
+          { "name": "Formal Shoes", "slug": "formal-shoes" },
+          { "name": "Sandals & Floaters", "slug": "sandals-floaters" }
+        ]
+      },
+      {
+        "name": "Women's Footwear",
+        "slug": "womens-footwear",
+        "subItems": [
+          { "name": "All", "slug": "all" },
+          { "name": "Flats", "slug": "flats" },
+          { "name": "Heels", "slug": "heels" },
+          { "name": "Wedges", "slug": "wedges" }
+        ]
+      }
+    ]
+  },
+  {
+   
+    "subCategories": [
+      {
+        "name": "Watches",
+        "slug": "watches",
+        "subItems": [
+          { "name": "Men's Watches", "slug": "mens-watches" },
+          { "name": "Women's Watches", "slug": "womens-watches" },
+          { "name": "Smart Watches", "slug": "smart-watches" }
+        ]
+      },
+      {
+        "name": "Accessories",
+        "slug": "accessories",
+        "subItems": [
+          { "name": "Wallets", "slug": "wallets" },
+          { "name": "Belts", "slug": "belts" },
+          { "name": "Sunglasses", "slug": "sunglasses" },
+          { "name": "Caps & Hats", "slug": "caps-hats" }
+        ]
+      }
+    ]
+  },
+  {
+    
+    "subCategories": [
+      {
+        "name": "Topwear",
+        "slug": "women-topwear",
+        "subItems": [
+          { "name": "Tops", "slug": "tops" },
+          { "name": "Dresses", "slug": "dresses" },
+          { "name": "Jumpsuits", "slug": "jumpsuits" }
+        ]
+      },
+      {
+        "name": "Bottomwear",
+        "slug": "women-bottomwear",
+        "subItems": [
+          { "name": "Jeans", "slug": "jeans" },
+          { "name": "Skirts", "slug": "skirts" },
+          { "name": "Trousers", "slug": "trousers" }
+        ]
+      }
+    ]
+  },
+  {
+    "subCategories": [
+      {
+        "name": "Bags",
+        "slug": "bags",
+        "subItems": [
+          { "name": "Handbags", "slug": "handbags" },
+          { "name": "Sling Bags", "slug": "sling-bags" },
+          { "name": "Backpacks", "slug": "backpacks" }
+        ]
+      },
+      {
+        "name": "Luggage",
+        "slug": "luggage",
+        "subItems": [
+          { "name": "Suitcases", "slug": "suitcases" },
+          { "name": "Trolley Bags", "slug": "trolley-bags" }
+        ]
+      }
+    ]
+  },
+  {
+  
+    "subCategories": [
+      {
+        "name": "Boys' Clothing",
+        "slug": "boys-clothing",
+        "subItems": [
+          { "name": "T-Shirts", "slug": "boys-tshirts" },
+          { "name": "Shirts", "slug": "boys-shirts" }
+        ]
+      },
+      {
+        "name": "Girls' Clothing",
+        "slug": "girls-clothing",
+        "subItems": [
+          { "name": "Dresses", "slug": "girls-dresses" },
+          { "name": "Tops", "slug": "girls-tops" }
+        ]
+      }
+    ]
+  },
+  {
+    
+    "subCategories": [
+      {
+        "name": "Personal Care",
+        "slug": "personal-care",
+        "subItems": [
+          { "name": "Soaps", "slug": "soaps" },
+          { "name": "Sanitizers", "slug": "sanitizers" },
+          { "name": "Hair Oils", "slug": "hair-oils" }
+        ]
+      },
+      {
+        "name": "Home Cleaning",
+        "slug": "home-cleaning",
+        "subItems": [
+          { "name": "Detergents", "slug": "detergents" },
+          { "name": "Floor Cleaners", "slug": "floor-cleaners" }
+        ]
+      }
+    ]
+  },
+  {
+    
+    "subCategories": [
+      {
+        "name": "Men",
+        "slug": "men-winter",
+        "subItems": [
+          { "name": "Sweaters", "slug": "sweaters" },
+          { "name": "Jackets", "slug": "jackets" }
+        ]
+      },
+      {
+        "name": "Women",
+        "slug": "women-winter",
+        "subItems": [
+          { "name": "Cardigans", "slug": "cardigans" },
+          { "name": "Sweaters", "slug": "women-sweaters" }
+        ]
+      }
+    ]
+  }
+]

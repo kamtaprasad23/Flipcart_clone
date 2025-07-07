@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { FiSearch, FiMoreVertical, FiMenu } from "react-icons/fi";
 import { FaRegUserCircle, FaStore } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { openCart } from "../redux/counter/counterSlice";
 import LoginDropdown from "../pages/LoginDropDown";
+import axios from "axios";
 
 const Topbar = () => {
   const navigate = useNavigate();
@@ -14,6 +15,23 @@ const Topbar = () => {
   const username = useSelector((state) => state.counter.username);
   const dispatch = useDispatch();
 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = async () => {
+    if (!searchQuery.trim()) return;
+    try {
+      const { data } = await axios.get(`http://localhost:5000/productSearch?keyword=${searchQuery}`);
+      setSearchResults(data);
+    } catch (err) {
+      console.log("Search Error", err);
+    }
+  };
+  useEffect(() => {
+    if (searchQuery.length === 0) {
+      setSearchResults([]);
+    }
+  }, [searchQuery]);
   return (
     <div className="flex items-center justify-between px-4 py-2 shadow-md bg-white relative sticky top-0 z-50">
       {/* Logo */}
@@ -25,15 +43,34 @@ const Topbar = () => {
         />
       </div>
 
-      {/* Search bar - desktop only */}
+    
       <div className="hidden md:flex items-center bg-blue-50 px-4 py-1 rounded w-[400px] lg:w-[500px]">
-        <FiSearch className="text-gray-500 text-lg" />
+        <FiSearch
+          onClick={handleSearch} className="text-gray-500 text-lg cursor-pointer" />
         <input
-          type="text"
+         type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search for Products, Brands and More"
           className="bg-transparent outline-none px-2 py-1 w-full text-sm"
+          onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+
         />
       </div>
+        {searchResults.length > 0 && (
+        <div className="absolute top-14 left-0 bg-white w-full md:w-[500px] shadow-lg rounded p-2 z-50 max-h-[400px] overflow-y-auto">
+          {searchResults.map((item) => (
+            <div
+              key={item._id}
+              className="p-2 border-b cursor-pointer hover:bg-gray-100"
+              onClick={() => navigate(`/product/${item._id}`)}
+            >
+              <p className="font-medium">{item.name}</p>
+              <p className="text-xs text-gray-500">{item.category}</p>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Desktop Nav Items */}
       <div className="hidden md:flex items-center space-x-6 text-black">

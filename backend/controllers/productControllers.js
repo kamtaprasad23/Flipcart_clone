@@ -22,3 +22,16 @@ export const getHomepageData = async (req, res) => {
     res.status(1000).json({ error: "Data fetch failed" });
   }
 };
+export const productSearch = async (req, res) => {
+  try {
+    const searchTerm = req.query.keyword;
+    console.log("Search term received: ", searchTerm);
+    const products = await Product.find({
+      title: { $regex: searchTerm, $options: "i" }  
+    });
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ message: "Failed to fetch search results" });
+  }
+};
+
