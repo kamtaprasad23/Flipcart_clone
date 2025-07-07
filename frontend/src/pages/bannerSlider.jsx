@@ -10,7 +10,7 @@ const BannerSlider = () => {
   const sliderRef = useRef(null);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/banners")
+    axios.get("https://e-commerce-website-backend-oq8z.onrender.com/banners")
       .then(res => setBanners(res.data))
       .catch(err => console.log(err));
   }, []);
