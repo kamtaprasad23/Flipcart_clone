@@ -11,7 +11,7 @@ const Product = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    axios.get("https://e-commerce-website-2ksc.onrender.com/getproducts")
+    axios.get("https://e-commerce-website-backend-oq8z.onrender.com/getproducts")
       .then((response) => {
         setProducts(response.data);
       })
