@@ -16,7 +16,7 @@ const LoginPage = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/login", {
+      const res = await axios.post("https://e-commerce-website-2ksc.onrender.com/login", {
         mobile: mobile,
       });
 
