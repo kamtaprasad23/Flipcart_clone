@@ -12,7 +12,7 @@ const VerifyOTP = () => {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/otp", {
+      const res = await axios.post("https://e-commerce-website-2ksc.onrender.com/otp", {
         mobile,
         otpnum: otp,
       });
