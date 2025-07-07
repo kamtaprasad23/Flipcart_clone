@@ -7,14 +7,14 @@ const PaymentPage = () => {
   const handlePayment = async () => {
     try {
       // Create order on backend
-      const { data } = await axios.post("http://localhost:5000/payment", {
+      const { data } = await axios.post("https://e-commerce-website-2ksc.onrender.com/payment", {
         amount: amount || 100, // fallback ₹100
       });
 
       const { id: order_id, currency, amount: order_amount } = data.order;
 
       // Get Razorpay key from backend
-      const { data: keyData } = await axios.get("http://localhost:5000/getkey");
+      const { data: keyData } = await axios.get("https://e-commerce-website-2ksc.onrender.com/getkey");
 
       // Razorpay options
       const options = {
