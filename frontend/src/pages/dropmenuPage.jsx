@@ -9,7 +9,7 @@ function Dropmenupage({ categorySlug }) {
   useEffect(() => {
     const fetchCategoryData = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/categories?slug=${categorySlug}`);
+        const res = await axios.get(`https://e-commerce-website-2ksc.onrender.com/categories?slug=${categorySlug}`);
         setCategoryData(res.data);
         setActiveSubCat(res.data.subCategories[0]?.name);  // Default first subCategory active
       } catch (error) {
