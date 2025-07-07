@@ -8,7 +8,7 @@ const ProductDetail = () => {
 
   const fetchProduct = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:5000/getproduct/${id}`);
+      const { data } = await axios.get(`https://e-commerce-website-2ksc.onrender.com/getproduct/${id}`);
       setProduct(data);
     } catch (err) {
       console.log("Fetch error", err);
