@@ -21,7 +21,7 @@ const Topbar = () => {
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
     try {
-      const { data } = await axios.get(`http://localhost:5000/productSearch?keyword=${searchQuery}`);
+      const { data } = await axios.get(`https://e-commerce-website-2ksc.onrender.com/productSearch?keyword=${searchQuery}`);
       setSearchResults(data);
     } catch (err) {
       console.log("Search Error", err);
