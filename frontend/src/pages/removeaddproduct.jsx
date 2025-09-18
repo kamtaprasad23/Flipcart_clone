@@ -22,7 +22,7 @@ const Removecart = () => {
 
       <h2 className="text-2xl font-bold mb-4 text-center">🛒 Cart Items</h2>
 
-      {/* 🔥 Yeh wrap wala div */}
+     
       <div className="h-[calc(100vh-80px)] overflow-y-auto pr-2">
         {addtocart.length === 0 ? (
           <p className="text-gray-500 text-center">Your cart is empty.</p>
