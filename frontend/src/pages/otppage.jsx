@@ -12,13 +12,13 @@ const VerifyOTP = () => {
 
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post("https://e-commerce-website-backend-oq8z.onrender.com/otp", {
+      const res = await axios.post("https://backend-3q55.onrender.com/otp", {
         mobile,
         otpnum: otp,
       });
 
       if (res.data.success) {
-      dispatch(setUsername(res.data.username));  // yaha pe name store kar liya
+      dispatch(setUsername(res.data.username));  // name store
       alert("Login Successful");
       navigate("/");
     } else {
