@@ -16,7 +16,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    axios.post("https://e-commerce-website-backend-oq8z.onrender.com/reg",formData);
+    axios.post("https://backend-3q55.onrender.com/reg",formData);
      setFormData({
         name: "",
         email: "",
