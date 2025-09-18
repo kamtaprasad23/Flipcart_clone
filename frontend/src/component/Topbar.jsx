@@ -21,7 +21,7 @@ const Topbar = () => {
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
     try {
-      const { data } = await axios.get(`https://e-commerce-website-backend-oq8z.onrender.com/productSearch?keyword=${searchQuery}`);
+      const { data } = await axios.get(`https://backend-3q55.onrender.com//productSearch?keyword=${searchQuery}`);
       setSearchResults(data);
     } catch (err) {
       console.log("Search Error", err);
